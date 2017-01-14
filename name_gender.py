@@ -17,5 +17,5 @@ for category_file_path in glob(sys.argv[1]+'/*.csv'):
                 categories.append(category_tuple(category=category, weighting=int(row['number'])))
 
 categories.sort(key=lambda category: category.weighting, reverse=True)
-if len(categories) > 0 and (len(sys.argv) > 3 or len(categories) == 1 or categories[1].weighting / categories[0].weighting > float(sys.argv[3])):
+if len(categories) > 0 and (len(sys.argv) > 3 or len(categories) == 1 or categories[0].weighting / categories[1].weighting > float(sys.argv[3])):
     print(categories[0].category)
